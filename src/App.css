@@ -1,4 +1,6 @@
-/* src/App.css */
+/* ==========================================================================
+   Complete Layout Styles (Base + About Me + Upgraded Projects Grid)
+   ========================================================================== */
 
 /* High-Contrast, Accessible Variables */
 :root {
@@ -100,7 +102,7 @@ body {
   outline-offset: 2px;
 }
 
-/* Technical Expertise Sidebar */
+/* Technical Expertise Sidebar Component */
 .skills-section {
   background-color: var(--card-bg);
   padding: 1.75rem; 
@@ -155,6 +157,7 @@ body {
   border: 2px solid var(--border-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
   margin-top: 1rem;
+  margin-bottom: 3.5rem;
 }
 
 .about-section h2 {
@@ -188,6 +191,121 @@ body {
   margin-bottom: 0;
 }
 
+/* Featured Projects Section Styling */
+.projects-section {
+  margin-top: 3.5rem;
+}
+
+.projects-section h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.projects-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), #3b82f6);
+  border-radius: 4px;
+}
+
+/* Smart Responsive Grid Layout for Project Cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual Premium Project Card Styles */
+.project-card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px; 
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+/* Card Hover Micro-interactions */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px -3px rgba(30, 64, 175, 0.08);
+  border-color: #93c5fd; 
+}
+
+.project-card:hover::before {
+  background-color: var(--accent-color); 
+}
+
+.project-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.85rem;
+  line-height: 1.35;
+}
+
+.project-card:hover h3 {
+  color: var(--accent-color); 
+}
+
+.project-card p {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+  flex-grow: 1; 
+}
+
+/* Tech Tags Layout */
+.project-tags {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+.project-tag {
+  background-color: #eff6ff; 
+  color: var(--accent-color);
+  font-size: 0.825rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px; 
+  border: 1px solid #dbeafe;
+  transition: all 0.2s ease;
+}
+
+.project-card:hover .project-tag {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border-color: var(--accent-color);
+}
+
 /* Minimalist Footer */
 .portfolio-footer {
   margin-top: 5rem;
@@ -219,5 +337,9 @@ body {
 
   .about-section {
     padding: 1.5rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }

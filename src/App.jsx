@@ -1,6 +1,8 @@
+// src/App.jsx
 import React from 'react';
 import './App.css';
 import Hero from "./components/Hero";
+import Projects from "./components/Projects"; // Imported the new component
 
 function App() {
   const currentYear = new Date().getFullYear();
@@ -45,7 +47,6 @@ function App() {
 
       </div>
 
-      {/* New About Me Section */}
       <section className="about-section">
         <h2>About Me</h2>
         <div className="about-content">
@@ -61,6 +62,9 @@ function App() {
           </p>
         </div>
       </section>
+
+      {/* Rendered the Projects Section component */}
+      <Projects />
 
       <footer className="portfolio-footer">
         <p>&copy; {currentYear} Mark Martin Akoto Appiah. All rights reserved.</p>
