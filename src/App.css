@@ -147,6 +147,47 @@ body {
   border-left: 5px solid var(--accent-color);
 }
 
+/* Styled About Me Section */
+.about-section {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  margin-top: 1rem;
+}
+
+.about-section h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.about-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+.about-content p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
 /* Minimalist Footer */
 .portfolio-footer {
   margin-top: 5rem;
@@ -174,5 +215,9 @@ body {
   
   .portfolio-header h1 {
     font-size: 2rem;
+  }
+
+  .about-section {
+    padding: 1.5rem;
   }
 }
