@@ -320,6 +320,36 @@ body {
   color: var(--text-muted);
 }
 
+/* Project Action Buttons */
+.project-actions {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.view-project-btn {
+  display: inline-block;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.view-project-btn span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover .view-project-btn {
+  color: var(--accent-hover);
+}
+
+.project-card:hover .view-project-btn span {
+  transform: translateX(4px); /* Animates arrow pointing right on card hover */
+}
+
+
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
   .profile-grid-layout {
