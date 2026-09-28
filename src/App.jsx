@@ -1,6 +1,6 @@
-// src/App.jsx
 import React from 'react';
 import './App.css';
+import Hero from "./components/Hero";
 
 function App() {
   const currentYear = new Date().getFullYear();
@@ -8,10 +8,8 @@ function App() {
   return (
     <div className="portfolio-container">
       
-      {/* Grid structure to place Profile Bio and Technical Expertise side-by-side */}
       <div className="profile-grid-layout">
         
-        {/* Header/Bio Section */}
         <header className="portfolio-header">
           <h1>Hi, I'm Mark Martin Akoto Appiah</h1>
           <p className="subtitle">Data Analyst</p>
@@ -22,7 +20,6 @@ function App() {
             optimize processes, and solve complex business problems.
           </p>
           
-          {/* Contact & Social Links */}
           <div className="contact-links">
             <a href="mailto:mmakotoappiah@gmail.com" className="contact-link">Email</a>
             <a 
@@ -44,19 +41,10 @@ function App() {
           </div>
         </header>
 
-        {/* Technical Skills Sidebar */}
-        <section className="skills-section">
-          <h2>Technical Expertise</h2>
-          <ul className="skills-list">
-            <li className="skill-item">SQL & Database Management</li>
-            <li className="skill-item">Python Data Stack (Pandas, NumPy, Matplotlib)</li>
-            <li className="skill-item">Data Visualization & BI Tools (Tableau/Power BI)</li>
-          </ul>
-        </section>
+        <Hero />
 
       </div>
 
-      {/* Clean Footer Section */}
       <footer className="portfolio-footer">
         <p>&copy; {currentYear} Mark Martin Akoto Appiah. All rights reserved.</p>
       </footer>
