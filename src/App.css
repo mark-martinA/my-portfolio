@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Complete Layout Styles (Base + Navigation + About + Stacked Projects)
+   Complete Layout Styles (Clean Variable Architecture)
    ========================================================================== */
 
-/* High-Contrast, Accessible Variables */
+/* All colors are defined here in one single place */
 :root {
   --bg-primary: #f0f4f8;       /* Soft slate background */
   --card-bg: #ffffff;          /* White cards for crisp contrast */
@@ -12,6 +12,12 @@
   --accent-hover: #1e3a8a;     /* Deeper blue */
   --border-color: #cbd5e1;     /* Visible dividers */
   --focus-outline: #d97706;    /* Amber focus ring for keyboard users */
+  
+  /* 💡 CONSOLIDATED NAMED VARIABLES (Extracted from hardcoded repetitions) */
+  --bg-tag-hover: #eff6ff;     /* Soft blue background tint for tag elements */
+  --border-tag-hover: #dbeafe; /* Light border color line match */
+  --border-card-hover: #93c5fd;/* Accent border color frame on element hover */
+  --accent-gradient: #3b82f6;  /* Soft visual blend color gradient partner */
 }
 
 * {
@@ -79,7 +85,6 @@ body {
   color: var(--accent-color);
 }
 
-/* Active route link marker accent indicator */
 .nav-item::after {
   content: '';
   position: absolute;
@@ -155,7 +160,7 @@ body {
 }
 
 .contact-link:hover {
-  color: #ffffff;
+  color: var(--card-bg); /* 🔄 Swapped #ffffff with var(--card-bg) */
   background-color: var(--accent-color);
   text-decoration: none;
   transform: translateY(-1px);
@@ -277,11 +282,11 @@ body {
   left: 0;
   width: 50px;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent-color), #3b82f6);
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-gradient)); /* 🔄 Uses var(--accent-gradient) */
   border-radius: 4px;
 }
 
-/* 🛠️ MODIFIED: Forced Clean 1-Column Stacked Project Cards Layout */
+/* Forced Clean 1-Column Stacked Project Cards Layout */
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr; 
@@ -318,7 +323,7 @@ body {
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 20px -3px rgba(30, 64, 175, 0.08);
-  border-color: #93c5fd; 
+  border-color: var(--border-card-hover); /* 🔄 Uses var(--border-card-hover) */
 }
 
 .project-card:hover::before {
@@ -354,19 +359,19 @@ body {
 }
 
 .project-tag {
-  background-color: #eff6ff; 
+  background-color: var(--bg-tag-hover); /* 🔄 Uses var(--bg-tag-hover) */
   color: var(--accent-color);
   font-size: 0.825rem;
   font-weight: 700;
   padding: 0.35rem 0.85rem;
   border-radius: 20px; 
-  border: 1px solid #dbeafe;
+  border: 1px solid var(--border-tag-hover); /* 🔄 Uses var(--border-tag-hover) */
   transition: all 0.2s ease;
 }
 
 .project-card:hover .project-tag {
   background-color: var(--accent-color);
-  color: #ffffff;
+  color: var(--card-bg); /* 🔄 Swapped #ffffff with var(--card-bg) */
   border-color: var(--accent-color);
 }
 
@@ -434,29 +439,3 @@ body {
 }
 
 /* Mobile Responsive Adjustments */
-@media (max-width: 768px) {
-  .portfolio-nav {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .profile-grid-layout {
-    grid-template-columns: 1fr; 
-    gap: 2rem;
-  }
-  
-  .portfolio-container {
-    padding: 1.5rem 1.25rem;
-  }
-  
-  .portfolio-header h1 {
-    font-size: 2rem;
-  }
-
-  .about-section {
-    padding: 1.5rem;
-  }
-}
