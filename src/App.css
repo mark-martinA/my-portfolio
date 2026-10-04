@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Complete Layout Styles (Base + About Me + Upgraded Projects Grid)
+   Complete Layout Styles (Base + Navigation + About + Stacked Projects)
    ========================================================================== */
 
 /* High-Contrast, Accessible Variables */
@@ -32,8 +32,72 @@ body {
 .portfolio-container {
   max-width: 1000px; 
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 2rem 2rem 4rem 2rem; 
 }
+
+/* ==========================================================================
+   Top Navigation Framework Styles
+   ========================================================================== */
+.portfolio-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  margin-bottom: 3.5rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.nav-logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  text-decoration: none;
+  letter-spacing: -0.03em;
+  transition: color 0.2s ease;
+}
+
+.nav-logo:hover {
+  color: var(--accent-color);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 1rem;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+  color: var(--accent-color);
+}
+
+/* Active route link marker accent indicator */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.2s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Main Content Layout Component Elements
+   ========================================================================== */
 
 /* Two-Column Grid Setup */
 .profile-grid-layout {
@@ -217,10 +281,10 @@ body {
   border-radius: 4px;
 }
 
-/* Smart Responsive Grid Layout for Project Cards */
+/* 🛠️ MODIFIED: Forced Clean 1-Column Stacked Project Cards Layout */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: 1fr; 
   gap: 2rem;
 }
 
@@ -306,21 +370,7 @@ body {
   border-color: var(--accent-color);
 }
 
-/* Minimalist Footer */
-.portfolio-footer {
-  margin-top: 5rem;
-  padding-top: 1.5rem;
-  border-top: 2px solid var(--border-color);
-  text-align: center;
-}
-
-.portfolio-footer p {
-  font-size: 0.9rem;
-  font-weight: 700; 
-  color: var(--text-muted);
-}
-
-/* Project Action Buttons */
+/* Project Action Buttons Setup */
 .project-actions {
   margin-top: 1.5rem;
   padding-top: 1rem;
@@ -346,19 +396,60 @@ body {
 }
 
 .project-card:hover .view-project-btn span {
-  transform: translateX(4px); /* Animates arrow pointing right on card hover */
+  transform: translateX(4px); 
 }
 
+/* ==========================================================================
+   Contact Page Grid Utilities & Keyframe Animation
+   ========================================================================== */
+.contact-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contact-page-container {
+  margin-top: 2rem;
+  animation: fadeInPage 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Minimalist Footer Element */
+.portfolio-footer {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--border-color);
+  text-align: center;
+}
+
+.portfolio-footer p {
+  font-size: 0.9rem;
+  font-weight: 700; 
+  color: var(--text-muted);
+}
 
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
+  .portfolio-nav {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+
   .profile-grid-layout {
     grid-template-columns: 1fr; 
     gap: 2rem;
   }
   
   .portfolio-container {
-    padding: 2rem 1.25rem;
+    padding: 1.5rem 1.25rem;
   }
   
   .portfolio-header h1 {
@@ -367,9 +458,5 @@ body {
 
   .about-section {
     padding: 1.5rem;
-  }
-  
-  .projects-grid {
-    grid-template-columns: 1fr;
   }
 }

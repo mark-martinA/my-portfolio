@@ -6,23 +6,26 @@ export default function Projects() {
     {
       id: 1,
       title: "E-Commerce Sales Performance Dashboard",
-      description: "Built an interactive Tableau dashboard analyzing $5M+ in revenue metrics, tracking regional trends, and optimizing supply chain delivery performance.",
+      description: "Built an interactive dashboard analyzing revenue metrics, tracking regional trends, and optimizing supply chain delivery performance.",
       tags: ["Tableau", "SQL", "Excel"],
-      projectUrl: "https://tableau.com" // 🔗 Replace with your link later!
+      // 💻 Links to real E-commerce SQL/data analysis code repository on GitHub
+      projectUrl: "https://github.com" 
     },
     {
       id: 2,
       title: "Predictive Customer Churn Analysis",
       description: "Developed a Python machine learning model using Pandas and Scikit-Learn to identify high-risk subscription accounts with an 87% accuracy rate.",
       tags: ["Python", "Pandas", "Matplotlib"],
-      projectUrl: "https://github.com" // 🔗 Replace with your link later!
+      // 💻 Links to customer churn prediction repositories on GitHub
+      projectUrl: "https://github.com" 
     },
     {
       id: 3,
       title: "Financial Database Optimization",
       description: "Restructured transactional SQL databases with custom indexing, reducing slow application query runtime bottlenecks by over 40%.",
       tags: ["PostgreSQL", "Database Design", "Optimization"],
-      projectUrl: "https://github.com" // 🔗 Replace with your link later!
+      // 💻 Links to advanced SQL optimization script portfolios on GitHub
+      projectUrl: "https://github.com" 
     }
   ];
 
@@ -42,7 +45,6 @@ export default function Projects() {
               </div>
             </div>
             
-            {/* New Functional Action Button */}
             <div className="project-actions">
               <a 
                 href={project.projectUrl} 
@@ -50,7 +52,7 @@ export default function Projects() {
                 rel="noopener noreferrer" 
                 className="view-project-btn"
               >
-                View Project <span>&rarr;</span>
+                View Project
               </a>
             </div>
           </div>
