@@ -1,10 +1,9 @@
 // src/App.jsx
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import Home from "./components/Home";
 import Projects from "./components/Projects";
-import Contact from "./components/Contact"; // 💡 Imported the new Contact component
+import Contact from "./components/contact"; // 💡 Imported the new Contact component
 
 function App() {
   const currentYear = new Date().getFullYear();
