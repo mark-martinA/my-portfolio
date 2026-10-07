@@ -1,23 +1,18 @@
 /* ==========================================================================
-   Complete Layout Styles (Clean Variable Architecture)
+   Complete Layout Styles (Premium Minimalist Dark Academic Theme)
    ========================================================================== */
 
-/* All colors are defined here in one single place */
 :root {
-  --bg-primary: #f0f4f8;       /* Soft slate background */
-  --card-bg: #ffffff;          /* White cards for crisp contrast */
-  --text-main: #0f172a;        /* Deep charcoal (WCAG AAA compliant) */
-  --text-muted: #334155;       /* Dark slate for high readability */
-  --accent-color: #1e40af;     /* Rich Royal Blue */
-  --accent-hover: #1e3a8a;     /* Deeper blue */
-  --border-color: #cbd5e1;     /* Visible dividers */
-  --focus-outline: #d97706;    /* Amber focus ring for keyboard users */
-  
-  /* 💡 CONSOLIDATED NAMED VARIABLES (Extracted from hardcoded repetitions) */
-  --bg-tag-hover: #eff6ff;     /* Soft blue background tint for tag elements */
-  --border-tag-hover: #dbeafe; /* Light border color line match */
-  --border-card-hover: #93c5fd;/* Accent border color frame on element hover */
-  --accent-gradient: #3b82f6;  /* Soft visual blend color gradient partner */
+  /* 🎛️ COLOR PALETTE MATCHED FROM THE EXAMPLE IMAGE */
+  --bg-primary: #0e0e0d;       /* Rich warm obsidian black */
+  --container-bg: #141413;     /* Dark espresso background for the main card */
+  --card-bg: #1a1a19;          /* Slightly lighter charcoal for secondary containers */
+  --text-main: #f5f5f4;        /* Soft crisp off-white for headers */
+  --text-muted: #a8a29e;       /* Muted stone gray for readable paragraphs */
+  --accent-color: #d6cbba;     /* Elegant warm cream/champagne accent */
+  --accent-hover: #e7ded0;     /* Lighter cream for active hover states */
+  --border-color: #262624;     /* Thin, clean structural border lines */
+  --focus-outline: #d6cbba;    
 }
 
 * {
@@ -28,17 +23,22 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--bg-primary);
   color: var(--text-main);
-  line-height: 1.5;
+  background-color: var(--bg-primary);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  padding: 2rem 0;
 }
 
-/* Layout Container */
+/* Premium Framed Inner Workspace Layout Container */
 .portfolio-container {
   max-width: 1000px; 
   margin: 0 auto;
-  padding: 2rem 2rem 4rem 2rem; 
+  padding: 3rem; 
+  background-color: var(--container-bg);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================================================================
@@ -48,22 +48,18 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1.5rem;
-  margin-bottom: 3.5rem;
-  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 2rem;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .nav-logo {
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--text-main);
   text-decoration: none;
-  letter-spacing: -0.03em;
-  transition: color 0.2s ease;
-}
-
-.nav-logo:hover {
-  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .nav-links {
@@ -74,71 +70,53 @@ body {
 .nav-item {
   text-decoration: none;
   color: var(--text-muted);
-  font-weight: 700;
-  font-size: 1rem;
-  position: relative;
-  padding: 0.25rem 0;
+  font-weight: 500;
+  font-size: 0.95rem;
   transition: color 0.2s ease;
 }
 
 .nav-item:hover {
-  color: var(--accent-color);
-}
-
-.nav-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--accent-color);
-  transition: width 0.2s ease;
-}
-
-.nav-item:hover::after {
-  width: 100%;
+  color: var(--text-main);
 }
 
 /* ==========================================================================
    Main Content Layout Component Elements
    ========================================================================== */
 
-/* Two-Column Grid Setup */
 .profile-grid-layout {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr; 
-  gap: 2.5rem;
+  grid-template-columns: 1.15fr 0.85fr; 
+  gap: 4rem;
   align-items: start;
-  margin-bottom: 3.5rem;
+  margin-bottom: 5rem;
 }
 
 /* Header Styles */
 .portfolio-header h1 {
-  font-size: 2.25rem; 
-  font-weight: 800;
+  font-size: 3rem; 
+  font-weight: 700;
   color: var(--text-main);
-  letter-spacing: -0.025em;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+  line-height: 1.15;
 }
 
 .portfolio-header .subtitle {
-  font-size: 1.2rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent-color);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.12em;
 }
 
 .portfolio-header p:not(.subtitle) {
   font-size: 1.05rem;
   color: var(--text-muted);
-  margin-bottom: 1.75rem;
+  margin-bottom: 2.5rem;
 }
 
-/* Accessible Contact Links */
+/* Button-Style Links Matching the Image Layout */
 .contact-links {
   display: flex;
   gap: 1rem;
@@ -147,57 +125,45 @@ body {
 
 .contact-link {
   display: inline-block;
-  color: var(--accent-color);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.5rem 1rem; 
-  background-color: var(--card-bg);
-  border: 2px solid var(--accent-color);
-  border-radius: 6px;
-  transition: all 0.2s ease-in-out;
+  color: #000000; /* Dark text inside warm filled button */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.7rem 1.5rem; 
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 30px; /* Fully rounded pill shape */
+  transition: all 0.2s ease;
+}
+
+/* Makes secondary buttons hollow exactly like the image context */
+.contact-link:nth-child(2),
+.contact-link:nth-child(3) {
+  background-color: transparent;
+  color: var(--text-main);
+  border-color: var(--border-color);
 }
 
 .contact-link:hover {
-  color: var(--card-bg); /* 🔄 Swapped #ffffff with var(--card-bg) */
-  background-color: var(--accent-color);
-  text-decoration: none;
   transform: translateY(-1px);
+  opacity: 0.9;
 }
 
-.contact-link:focus {
-  outline: 3px solid var(--focus-outline);
-  outline-offset: 2px;
-}
-
-/* Technical Expertise Sidebar Component */
+/* Technical Expertise Sidebar Card */
 .skills-section {
   background-color: var(--card-bg);
-  padding: 1.75rem; 
-  border-radius: 12px;
-  border: 2px solid var(--border-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  padding: 2rem; 
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
 }
 
 .skills-section h2 {
-  font-size: 1.35rem;
-  font-weight: 800;
-  margin-bottom: 1.25rem;
-  position: relative;
-  padding-bottom: 0.5rem;
-  color: var(--text-main);
-}
-
-.skills-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 45px;
-  height: 3px;
-  background-color: var(--accent-color);
-  border-radius: 2px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .skills-list {
@@ -208,234 +174,165 @@ body {
 }
 
 .skill-item {
-  background-color: var(--bg-primary);
-  padding: 0.75rem 1rem; 
-  border-radius: 8px;
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text-main);
-  border: 1px solid var(--border-color);
-  border-left: 5px solid var(--accent-color);
+  display: flex;
+  align-items: center;
 }
 
-/* Styled About Me Section */
+/* Adds the minimalist bullet point indicators seen in the image card */
+.skill-item::before {
+  content: '•';
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  margin-right: 12px;
+}
+
+/* Beautiful Rounded About Me Section */
 .about-section {
-  background-color: var(--card-bg);
-  padding: 2rem;
-  border-radius: 12px;
-  border: 2px solid var(--border-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-  margin-top: 1rem;
-  margin-bottom: 3.5rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 4rem;
+  margin-bottom: 5rem;
 }
 
 .about-section h2 {
-  font-size: 1.75rem;
-  font-weight: 800;
+  font-size: 0.75rem;
+  font-weight: 700;
   margin-bottom: 1.5rem;
-  position: relative;
-  padding-bottom: 0.5rem;
-  color: var(--text-main);
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
-.about-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 4px;
-  background-color: var(--accent-color);
-  border-radius: 2px;
+.about-content h3 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
 }
 
 .about-content p {
   font-size: 1.05rem;
   color: var(--text-muted);
-  margin-bottom: 1.25rem;
-  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
 }
 
-.about-content p:last-child {
-  margin-bottom: 0;
-}
-
-/* Featured Projects Section Styling */
+/* ==========================================================================
+   Upgraded Stacked Project Cards
+   ========================================================================== */
 .projects-section {
-  margin-top: 3.5rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 4rem;
 }
 
 .projects-section h2 {
-  font-size: 1.85rem;
-  font-weight: 800;
+  font-size: 0.75rem;
+  font-weight: 700;
   margin-bottom: 2rem;
-  position: relative;
-  padding-bottom: 0.6rem;
-  color: var(--text-main);
-  letter-spacing: -0.02em;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
-.projects-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-color), var(--accent-gradient)); /* 🔄 Uses var(--accent-gradient) */
-  border-radius: 4px;
-}
-
-/* Forced Clean 1-Column Stacked Project Cards Layout */
 .projects-grid {
-  display: grid;
-  grid-template-columns: 1fr; 
-  gap: 2rem;
-}
-
-/* Individual Premium Project Card Styles */
-.project-card {
-  background-color: var(--card-bg);
-  padding: 2rem;
-  border-radius: 16px; 
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.03);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 1.5rem;
 }
 
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background-color: transparent;
-  transition: background-color 0.2s ease;
+.project-card {
+  background-color: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 16px; 
+  border: 1px solid var(--border-color);
+  transition: border-color 0.25s ease;
 }
 
-/* Card Hover Micro-interactions */
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 20px -3px rgba(30, 64, 175, 0.08);
-  border-color: var(--border-card-hover); /* 🔄 Uses var(--border-card-hover) */
-}
-
-.project-card:hover::before {
-  background-color: var(--accent-color); 
+  border-color: var(--accent-color); 
 }
 
 .project-card h3 {
-  font-size: 1.3rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 0.85rem;
-  line-height: 1.35;
-}
-
-.project-card:hover h3 {
-  color: var(--accent-color); 
+  margin-bottom: 1rem;
 }
 
 .project-card p {
-  font-size: 0.98rem;
+  font-size: 1rem;
   color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 1.75rem;
-  flex-grow: 1; 
+  margin-bottom: 2rem;
 }
 
-/* Tech Tags Layout */
+/* Clean Tech Badges */
 .project-tags {
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
-  padding-top: 0.5rem;
 }
 
 .project-tag {
-  background-color: var(--bg-tag-hover); /* 🔄 Uses var(--bg-tag-hover) */
-  color: var(--accent-color);
-  font-size: 0.825rem;
-  font-weight: 700;
-  padding: 0.35rem 0.85rem;
+  background-color: var(--container-bg); 
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
   border-radius: 20px; 
-  border: 1px solid var(--border-tag-hover); /* 🔄 Uses var(--border-tag-hover) */
-  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
 }
 
-.project-card:hover .project-tag {
-  background-color: var(--accent-color);
-  color: var(--card-bg); /* 🔄 Swapped #ffffff with var(--card-bg) */
-  border-color: var(--accent-color);
-}
-
-/* Project Action Buttons Setup */
+/* Action Link Setup */
 .project-actions {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px dashed var(--border-color);
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .view-project-btn {
-  display: inline-block;
   color: var(--accent-color);
   text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 0.95rem;
   transition: color 0.2s ease;
 }
 
-.view-project-btn span {
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
-
-.project-card:hover .view-project-btn {
-  color: var(--accent-hover);
-}
-
-.project-card:hover .view-project-btn span {
-  transform: translateX(4px); 
-}
-
-/* ==========================================================================
-   Contact Page Grid Utilities & Keyframe Animation
-   ========================================================================== */
-.contact-details-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.contact-page-container {
-  margin-top: 2rem;
-  animation: fadeInPage 0.4s ease-in-out forwards;
-}
-
-@keyframes fadeInPage {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.view-project-btn:hover {
+  color: var(--text-main);
 }
 
 /* Minimalist Footer Element */
 .portfolio-footer {
-  margin-top: 5rem;
-  padding-top: 1.5rem;
-  border-top: 2px solid var(--border-color);
+  margin-top: 6rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
   text-align: center;
 }
 
 .portfolio-footer p {
-  font-size: 0.9rem;
-  font-weight: 700; 
+  font-size: 0.85rem;
+  font-weight: 500; 
   color: var(--text-muted);
 }
 
-/* Mobile Responsive Adjustments */
+/* ==========================================================================
+   Mobile Responsive Adjustments
+   ========================================================================== */
+@media (max-width: 768px) {
+  .portfolio-container {
+    padding: 2rem 1.5rem;
+    border-radius: 0;
+    border: none;
+  }
+
+  .profile-grid-layout {
+    grid-template-columns: 1fr; 
+    gap: 3rem;
+  }
+  
+  .portfolio-header h1 {
+    font-size: 2.5rem;
+  }
+}
